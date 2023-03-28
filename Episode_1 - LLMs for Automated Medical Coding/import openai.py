@@ -4,8 +4,7 @@ import json
 import os
 import time
 
-# Replace 'your_api_key_here' with your actual API key
-openai.api_key = "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"
+openai.api_key = "your_api_key_here"
 
 def mp3_to_text(file_path):
     # Upload the audio file
@@ -16,7 +15,7 @@ def mp3_to_text(file_path):
     return transcript
 
 def get_codes(transcript):
-    prompt = f"Given the following doctor's dictation transcript, provide the relevant ICD-10 and CPT codes and their descriptions:\n\n{transcript}\n\nYou can find an updated list of ICD codes at this site: https://www.icd10data.com/ICD10CM/Codes. ICD-10 and CPT Codes:"
+    prompt = f"Given the following doctor's dictation transcript, provide the relevant ICD-10 and CPT codes and their descriptions:\n\n{transcript}\n\n ICD-10 and CPT Codes:"
     response = openai.Completion.create(engine="text-davinci-002", prompt=prompt, max_tokens=1000, n=1, stop=None, temperature=0.5,
     )
     codes_text = response.choices[0].text.strip()
