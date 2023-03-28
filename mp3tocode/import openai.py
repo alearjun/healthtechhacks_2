@@ -5,7 +5,7 @@ import os
 import time
 
 # Replace 'your_api_key_here' with your actual API key
-openai.api_key = "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"
+openai.api_key = "your_api_key_here"
 
 def mp3_to_text(file_path):
     # Upload the audio file
